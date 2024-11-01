@@ -27,7 +27,6 @@ class Kendaraan {
     }
 
     public void inputData(Scanner scanner) {
-        System.out.print("Plat Nomer " + jenis + "nya kak boleh di tulis? ");
         this.platNomor = scanner.nextLine();
     }
 
@@ -46,6 +45,12 @@ class Motor extends Kendaraan {
         super("Motor");
         System.out.println("Motor kakaknya beat karbu itu ya.");
     }
+    @Override
+    public void inputData(Scanner scanner) {
+        System.out.print("Plat nomor motor kakaknya apa kak? ");
+        this.platNomor = scanner.nextLine();
+    }
+
 }
 
 // Kelas Anak Mobil
@@ -53,6 +58,11 @@ class Mobil extends Kendaraan {
     public Mobil() {
         super("Mobil");
         System.out.println("Mobil kakaknya Pajero itu ya.");
+    }
+    @Override
+    public void inputData(Scanner scanner) {
+        System.out.print("Plat nomor mobil kakaknya apa kak? ");
+        this.platNomor = scanner.nextLine();
     }
 }
 
@@ -167,9 +177,9 @@ public class BengkelApp {
 
         Kendaraan kendaraan;
 
-        if (jenisKendaraan.equals("motor")) {
+        if (jenisKendaraan.equals("motor") || jenisKendaraan.equals("Motor")) {
             kendaraan = new Motor();
-        } else if (jenisKendaraan.equals("mobil")) {
+        } else if (jenisKendaraan.equals("mobil") || jenisKendaraan.equals("Mobil")) {
             kendaraan = new Mobil();
         } else {
             System.out.println("Gabisa Servicenya kita mas");
